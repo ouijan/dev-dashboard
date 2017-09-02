@@ -1,14 +1,13 @@
 import { NgModule } from '@angular/core';
 
-import { HttpModule }    from '@angular/http';
-import { MaterialModule } from '../material/material.module';
+import { CoreModule } from '../core/core.module';
 
 import  { JenkinsService } from './jenkins.service';
 import { BuildsComponent } from './builds.component';
 
 @NgModule({
 	declarations: [BuildsComponent],
-	imports: [HttpModule, MaterialModule],
+	imports: [CoreModule],
   exports: [BuildsComponent],
   providers: [JenkinsService],
 })

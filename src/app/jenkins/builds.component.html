@@ -3,5 +3,26 @@
 </md-toolbar>
 
 <div>
-	
+	<table style="width: 100%;">
+		<thead>
+			<tr>
+				<td>Job</td>
+				<td>Stages</td>
+				<td>Finished</td>
+				<td>Duration</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let build of builds">
+				<td>{{ build.buildName }}</td>
+				<td>
+					<div *ngFor="let stage of build.stages">
+						{{ stage.name }} - {{ stage.status }}
+					</div>
+				</td>
+				<td>{{ build.endTimeMillis }}</td>
+				<td>{{ build.durationMillis }}</td>
+			</tr>
+		</tbody>
+	</table>
 </div>
