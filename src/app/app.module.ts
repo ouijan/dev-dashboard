@@ -3,7 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 
-import { MaterialModule } from './material.module';
+import { MaterialModule } from './material/material.module';
+import { JenkinsModule } from './jenkins/jenkins.module';
 import { AppComponent } from './app.component';
 
 @NgModule({
@@ -13,7 +14,7 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MaterialModule
+    JenkinsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

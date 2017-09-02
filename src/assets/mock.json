@@ -1,0 +1,234 @@
+{
+"_class": "com.ooyala.jenkins.plugins.pipelineaggregatorview.PipelineAggregator",
+"description": null,
+"jobs": [],
+"name": "Live Build Status",
+"property": [],
+"url": "http://jenkins.k8s.dev.digitalpacific.com.au/view/Live%20Build%20Status/",
+"builds": [
+{
+"buildName": "dp.account » develop #3",
+"changeLogSet": [
+{
+"author": "shaun.smekel",
+"message": "Temp move of imageBuild back to baseBuild"
+}
+],
+"duration": 732131,
+"jobName": "#3",
+"number": 3,
+"result": "SUCCESS",
+"startTime": 1504224600613,
+"url": "job/dp.account/job/develop/3/"
+},
+{
+"buildName": "dp.cart » develop #3",
+"changeLogSet": [
+{
+"author": "shaun.smekel",
+"message": "Temp move of imageBuild back to baseBuild"
+}
+],
+"duration": 1276846,
+"jobName": "#3",
+"number": 3,
+"result": "SUCCESS",
+"startTime": 1504224585057,
+"url": "job/dp.cart/job/develop/3/"
+},
+{
+"buildName": "one-panel-admin » master #2",
+"changeLogSet": [
+{
+"author": "shaun.smekel",
+"message": "Added script"
+},
+{
+"author": "shaun.smekel",
+"message": "Updated deploy version"
+}
+],
+"duration": 1418342,
+"jobName": "#2",
+"number": 2,
+"result": "FAILURE",
+"startTime": 1504181284230,
+"url": "job/onepanel.admin/job/master/2/"
+},
+{
+"buildName": "one-panel-admin » hotfix/add-jenkinsfile #1",
+"changeLogSet": [],
+"duration": 10780,
+"jobName": "#1",
+"number": 1,
+"result": "FAILURE",
+"startTime": 1504164925352,
+"url": "job/onepanel.admin/job/hotfix%252Fadd-jenkinsfile/1/"
+},
+{
+"buildName": "one-panel-admin » feature/update-deployment-to-use-nginx #1",
+"changeLogSet": [],
+"duration": 54588,
+"jobName": "#1",
+"number": 1,
+"result": "FAILURE",
+"startTime": 1504164925085,
+"url": "job/onepanel.admin/job/feature%252Fupdate-deployment-to-use-nginx/1/"
+},
+{
+"buildName": "one-panel-admin » release/3.1.0-move-to-php-fpm #1",
+"changeLogSet": [],
+"duration": 14630,
+"jobName": "#1",
+"number": 1,
+"result": "FAILURE",
+"startTime": 1504164924725,
+"url": "job/onepanel.admin/job/release%252F3.1.0-move-to-php-fpm/1/"
+},
+{
+"buildName": "one-panel-admin » feature/add-mail-to-deployment #1",
+"changeLogSet": [],
+"duration": 57711,
+"jobName": "#1",
+"number": 1,
+"result": "FAILURE",
+"startTime": 1504164923136,
+"url": "job/onepanel.admin/job/feature%252Fadd-mail-to-deployment/1/"
+},
+{
+"buildName": "one-panel-admin » release/3.3.0-add-qantas-handback-reprocessing #1",
+"changeLogSet": [],
+"duration": 5413,
+"jobName": "#1",
+"number": 1,
+"result": "FAILURE",
+"startTime": 1504164922589,
+"url": "job/onepanel.admin/job/release%252F3.3.0-add-qantas-handback-reprocessing/1/"
+},
+{
+"buildName": "one-panel-admin » hotfix/3.3.8-move-crucial-cron-to-different-time #1",
+"changeLogSet": [],
+"duration": 59640,
+"jobName": "#1",
+"number": 1,
+"result": "FAILURE",
+"startTime": 1504164922212,
+"url": "job/onepanel.admin/job/hotfix%252F3.3.8-move-crucial-cron-to-different-time/1/"
+},
+{
+"buildName": "one-panel-admin » feature/handle-404-errors-gracefully #1",
+"changeLogSet": [],
+"duration": 22681,
+"jobName": "#1",
+"number": 1,
+"result": "FAILURE",
+"startTime": 1504164921963,
+"url": "job/onepanel.admin/job/feature%252Fhandle-404-errors-gracefully/1/"
+},
+{
+"buildName": "one-panel-admin » release/3.5.0-fix-404-errors #1",
+"changeLogSet": [],
+"duration": 26030,
+"jobName": "#1",
+"number": 1,
+"result": "ABORTED",
+"startTime": 1504164921646,
+"url": "job/onepanel.admin/job/release%252F3.5.0-fix-404-errors/1/"
+},
+{
+"buildName": "one-panel-admin » feature/disable-cron-db-logging #1",
+"changeLogSet": [],
+"duration": 29653,
+"jobName": "#1",
+"number": 1,
+"result": "ABORTED",
+"startTime": 1504164920674,
+"url": "job/onepanel.admin/job/feature%252Fdisable-cron-db-logging/1/"
+},
+{
+"buildName": "one-panel-admin » hotfix/3.5.3-getordersbyids-get-to-post #1",
+"changeLogSet": [],
+"duration": 41636,
+"jobName": "#1",
+"number": 1,
+"result": "FAILURE",
+"startTime": 1504164920236,
+"url": "job/onepanel.admin/job/hotfix%252F3.5.3-getordersbyids-get-to-post/1/"
+},
+{
+"buildName": "one-panel-admin » feature/add-version-update-script #1",
+"changeLogSet": [],
+"duration": 70088,
+"jobName": "#1",
+"number": 1,
+"result": "ABORTED",
+"startTime": 1504164920008,
+"url": "job/onepanel.admin/job/feature%252Fadd-version-update-script/1/"
+},
+{
+"buildName": "one-panel-admin » hotfix/3.6.2-wrong-user #1",
+"changeLogSet": [],
+"duration": 63803,
+"jobName": "#1",
+"number": 1,
+"result": "FAILURE",
+"startTime": 1504164919065,
+"url": "job/onepanel.admin/job/hotfix%252F3.6.2-wrong-user/1/"
+},
+{
+"buildName": "one-panel-admin » develop #1",
+"changeLogSet": [],
+"duration": 41657,
+"jobName": "#1",
+"number": 1,
+"result": "FAILURE",
+"startTime": 1504164918065,
+"url": "job/onepanel.admin/job/develop/1/"
+},
+{
+"buildName": "one-panel-admin » master #1",
+"changeLogSet": [],
+"duration": 40157,
+"jobName": "#1",
+"number": 1,
+"result": "FAILURE",
+"startTime": 1504164917205,
+"url": "job/onepanel.admin/job/master/1/"
+},
+{
+"buildName": "one-panel-admin » feature/support-lock-qantas-api #1",
+"changeLogSet": [],
+"duration": 15708,
+"jobName": "#1",
+"number": 1,
+"result": "FAILURE",
+"startTime": 1504164916895,
+"url": "job/onepanel.admin/job/feature%252Fsupport-lock-qantas-api/1/"
+},
+{
+"buildName": "one-panel-admin » release/3.7.0-add-extra-reporting-options #1",
+"changeLogSet": [],
+"duration": 1679296,
+"jobName": "#1",
+"number": 1,
+"result": "SUCCESS",
+"startTime": 1504164916586,
+"url": "job/onepanel.admin/job/release%252F3.7.0-add-extra-reporting-options/1/"
+},
+{
+"buildName": "dp.openstack.resources » PR-195 #4",
+"changeLogSet": [
+{
+"author": "shaun.smekel",
+"message": "Temp move of imageBuild back to baseBuild"
+}
+],
+"duration": 1315305,
+"jobName": "#4",
+"number": 4,
+"result": "SUCCESS",
+"startTime": 1504164628681,
+"url": "job/dp.openstack.resources/job/PR-195/4/"
+}
+]
+}
