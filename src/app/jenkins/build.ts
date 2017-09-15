@@ -3,13 +3,47 @@ export class Build {
 	buildName: string
 	name: string
 	status: string
-	startTimeMillis: number
+	startTimeMillis: Date
 	durationMillis: number
-	endTimeMillis: number
+	endTimeMillis: Date
 	pauseDurationMillis: number
 	queueDurationMillis: number
 	stages: BuildStage[]
 	_links: BuildLinks
+
+	constructor(buildName: string, data: any) {
+		this.buildName = buildName;
+		this.name = data.name;
+		this.status = data.status;
+		this.startTimeMillis = new Date(data.startTimeMillis);
+		this.durationMillis = data.durationMillis;
+		this.endTimeMillis = new Date(data.endTimeMillis);
+		this.pauseDurationMillis = data.pauseDurationMillis;
+		this.queueDurationMillis = data.queueDurationMillis;
+		this.stages = data.stages;
+		this._links = data._links;
+	}
+
+	isSuccess(): boolean {
+		return this.status == "SUCCESS";
+	}
+	
+	isFailure(): boolean {
+		return this.status == "FAILED";
+	}
+
+	isAborted(): boolean {
+		return this.status == "ABORTED";
+	}
+
+	isRunning(): boolean {
+		return !this.isSuccess() && !this.isFailure() && !this.isAborted();
+	}
+
+	getLastStage(): BuildStage {
+		let lastIndex = this.stages.length - 1;
+		return this.stages[lastIndex];
+	}
 }
 
 class BuildStage {

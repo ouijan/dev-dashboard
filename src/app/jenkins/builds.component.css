@@ -1,0 +1,23 @@
+.mat-header-row, 
+.mat-row {
+	padding-left: 0;
+}
+
+.mat-column-status {
+	max-width: 50px;
+	text-align: center;
+}
+.mat-column-stages {
+	text-align: right;
+}
+
+.build-stage {
+  color: #3f51b5;
+  display: inline-flex;
+}
+.build-stage-SUCCESS {
+	color: #35aa47;
+}
+.build-stage-FAILED {
+	color: #f44336;
+}

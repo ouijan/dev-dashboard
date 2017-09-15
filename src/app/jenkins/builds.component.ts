@@ -2,39 +2,55 @@ import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 
 import { Build } from './build';
+import { BuildList } from './build-list';
+import { BuildDataSource } from './build-data-source';
 import { JenkinsService } from './jenkins.service';
 
 @Component({
   selector: 'jenkins-builds',
   templateUrl: './builds.component.html',
+  styleUrls: ['./builds.component.css'],
 })
 export class BuildsComponent implements OnInit {
   title: string;
-  builds: Build[] = []
-  columns: ['name', 'result'];
+  builds = new BuildList();
+  dataSource: BuildDataSource;
+  displayedColumns = [
+    'status', 
+    'name', 
+    'stage', 
+    // 'finished', 
+    // 'duration',
+   ];
 
 	constructor(private jenkins: JenkinsService) { }
 
   ngOnInit(): void {
+    this.dataSource = new BuildDataSource(this.builds);
     this.load();
+    let repeatInterval = 0.5 * (60 * 1000);
+    setInterval(() => this.load(), repeatInterval);
   }
 
   load(): void {
+    console.log('reloading');
     this.jenkins.getLiveBuildStatus()
       .then(data => this.createBuilds(data));
   }
 
   createBuilds(data): void {
     this.title = data.name;
+    this.builds.empty();
     data.builds.forEach(build => this.createBuild(build.buildName, build.url));
   }
 
   createBuild(name: string, path: string): void {
     this.jenkins.getBuild(path)
       .then(data => {
-        data.buildName = name,
-        this.builds.push(data as Build);
+        let build = new Build(name, data);
+        this.builds.add(build);
       });
   }
 
 }
+

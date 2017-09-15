@@ -1,12 +1,21 @@
 import { NgModule } from '@angular/core';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MdToolbarModule } from '@angular/material';
+import { 
+	MdToolbarModule,
+	MdTableModule,
+	MdIconModule,
+	MdProgressSpinnerModule,
+	MdChipsModule,
+} from '@angular/material';
 
 let modules = [
 	BrowserAnimationsModule,
 	MdToolbarModule,
-  // MdTableModule,
+  MdTableModule,
+  MdIconModule,
+  MdProgressSpinnerModule,
+  MdChipsModule,
 ];
 
 @NgModule({

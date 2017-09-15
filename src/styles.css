@@ -1,1 +1,13 @@
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+md-spinner.icon {
+  float: left;
+  height: 20px;
+  margin: 2px;
+  width: 20px;
+}
+
+.mat-success {
+	color: #35aa47;
+}
+
