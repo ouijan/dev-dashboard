@@ -1,23 +1,42 @@
+.mat-header-row {
+ display: none;
+}
+
 .mat-header-row, 
 .mat-row {
 	padding-left: 0;
+}
+.mat-header-cell,
+.mat-cell {
+	margin: 0 10px;
 }
 
 .mat-column-status {
 	max-width: 50px;
 	text-align: center;
 }
-.mat-column-stages {
-	text-align: right;
+.mat-column-flex {
+  display: inline-flex;
+  flex-grow: 100;
 }
 
 .build-stage {
   color: #3f51b5;
-  display: inline-flex;
+  /*-webkit-animation: pulsate 2s ease-out;*/
+  /*-webkit-animation-iteration-count: infinite;*/
 }
 .build-stage-SUCCESS {
+	/*-webkit-animation: none;*/
 	color: #35aa47;
 }
 .build-stage-FAILED {
+	/*-webkit-animation: none;*/
 	color: #f44336;
+}
+
+
+@-webkit-keyframes pulsate {
+    0% {-webkit-transform: scale(0.1, 0.1); opacity: 0.5;}
+    50% {opacity: 1.0;}
+    100% {-webkit-transform: scale(1.2, 1.2); opacity: 0.5;}
 }

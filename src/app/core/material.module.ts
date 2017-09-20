@@ -6,6 +6,7 @@ import {
 	MdTableModule,
 	MdIconModule,
 	MdProgressSpinnerModule,
+	MdProgressBarModule,
 	MdChipsModule,
 } from '@angular/material';
 
@@ -15,6 +16,7 @@ let modules = [
   MdTableModule,
   MdIconModule,
   MdProgressSpinnerModule,
+  MdProgressBarModule,
   MdChipsModule,
 ];
 

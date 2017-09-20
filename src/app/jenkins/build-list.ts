@@ -9,6 +9,11 @@ export class BuildList {
   add(build: Build): void {
     const copiedData = this.data.slice();
     copiedData.push(build);
+    // copiedData.sort((a, b) => {
+    //   if (a.startTimeMillis > b.startTimeMillis) return -1;
+    //   if (a.startTimeMillis < b.startTimeMillis) return 1;
+    //   return 0;
+    // });
     this.dataChange.next(copiedData);
   }
 

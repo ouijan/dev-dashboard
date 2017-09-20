@@ -33,7 +33,7 @@ export class Build {
 	}
 
 	isAborted(): boolean {
-		return this.status == "ABORTED";
+		return (this.status == "ABORTED" || this.status == "NOT_EXECUTED");
 	}
 
 	isRunning(): boolean {

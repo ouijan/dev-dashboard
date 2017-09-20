@@ -15,11 +15,15 @@ export class BuildsComponent implements OnInit {
   title: string;
   builds = new BuildList();
   dataSource: BuildDataSource;
+  loadInterval: number = 15;
+  progress: number = 0;
   displayedColumns = [
     'status', 
     'name', 
+    'flex',
     'stage', 
-    // 'finished', 
+    // 'started',
+    // 'finished',
     // 'duration',
    ];
 
@@ -28,14 +32,23 @@ export class BuildsComponent implements OnInit {
   ngOnInit(): void {
     this.dataSource = new BuildDataSource(this.builds);
     this.load();
-    let repeatInterval = 0.5 * (60 * 1000);
+    let repeatInterval = this.loadInterval * 1000;
     setInterval(() => this.load(), repeatInterval);
+    setInterval(() => this.progress += 0.05, 50);
   }
 
   load(): void {
     console.log('reloading');
+    
     this.jenkins.getLiveBuildStatus()
-      .then(data => this.createBuilds(data));
+      .then(data => {
+        this.createBuilds(data);
+        this.progress = 0;
+      });
+  }
+
+  getProgress() {
+    return this.progress / this.loadInterval * 100;
   }
 
   createBuilds(data): void {

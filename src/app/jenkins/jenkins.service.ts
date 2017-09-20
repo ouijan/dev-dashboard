@@ -13,8 +13,8 @@ export class JenkinsService {
 	}
 
   getLiveBuildStatus(): Promise<any> {
-    // const url = `${this.jenkinsUrl}/view/Live%20Build%20Status/api/json`;
-    const url = `/assets/builds.json`;
+    const url = `${this.jenkinsUrl}/view/Live%20Build%20Status/api/json`;
+    // const url = `/assets/builds.json`;
  		return this.http.get(url)
  			.toPromise()
   		.then(response => response.json())
@@ -22,8 +22,8 @@ export class JenkinsService {
   }
 
   getBuild(path: string) {
-    // const url = `${this.jenkinsUrl}/${path}/wfapi/describe`;
-    const url = `/assets/build.json`;
+    const url = `${this.jenkinsUrl}/${path}/wfapi/describe`;
+    // const url = `/assets/build.json`;
     return this.http.get(url)
       .toPromise()
       .then(response => response.json())
