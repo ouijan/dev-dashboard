@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 
+import { PollingHandler } from '../core/polling-handler';
+
 import { Build } from './build';
 import { BuildList } from './build-list';
 import { BuildDataSource } from './build-data-source';
@@ -15,6 +17,7 @@ export class BuildsComponent implements OnInit {
   title: string;
   builds = new BuildList();
   dataSource: BuildDataSource;
+  polling: PollingHandler;
   displayedColumns = [
     'status', 
     'name', 
@@ -25,12 +28,14 @@ export class BuildsComponent implements OnInit {
     // 'duration',
    ];
 
-	constructor(private jenkins: JenkinsService) { }
+	constructor(private jenkins: JenkinsService) { 
+    this.polling = new PollingHandler(() => this.load());
+  }
 
   ngOnInit(): void {
     this.dataSource = new BuildDataSource(this.builds);
     this.load();
-    this.startPolling()
+    this.polling.start(15000);
   }
 
   load(): void {
@@ -38,7 +43,7 @@ export class BuildsComponent implements OnInit {
       .then(data => this.createBuilds(data));
   }
 
-  createBuilds(data): void {
+  createBuilds(data: any): void {
     this.title = data.name;
     data.builds.forEach(build => this.createBuild(build.buildName, build.url));
   }
@@ -50,13 +55,9 @@ export class BuildsComponent implements OnInit {
 
     let build = new Build(name, path, this.jenkins);
     build.refresh();
-    build.startPolling(3000);
+    build.polling.start(3000);
+    
     this.builds.add(build);
-  }
-
-
-  startPolling(interval: number = 15000): void {
-    window.setInterval(() => this.load(), interval);
   }
 
 }

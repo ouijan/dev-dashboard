@@ -1,4 +1,5 @@
 import  { JenkinsService } from './jenkins.service';
+import { PollingHandler } from '../core/polling-handler';
 
 export class Build {
 	jenkins: any
@@ -14,12 +15,13 @@ export class Build {
 	queueDurationMillis: number
 	stages: BuildStage[] = []
 	_links: BuildLinks
-	_poller: any
+	polling: PollingHandler;
 
 	constructor(buildName: string, path: string, jenkins: JenkinsService) {
 		this.buildName = buildName;
 		this.path = path;
 		this.jenkins = jenkins;
+		this.polling = new PollingHandler(() => this.refresh());
 	}
 
 	setProperties(data: any): void {
@@ -34,18 +36,8 @@ export class Build {
 		this._links = data._links;
 
 		if (!this.isRunning()) {
-			this.stopPolling();
+			this.polling.stop();
 		}
-	}
-
-	stopPolling(): any {
-		if (this._poller) {
-			window.clearInterval(this._poller);
-		}
-	}
-
-	startPolling(interval: number = 15000): void {
-		this._poller = window.setInterval(() => this.refresh(), interval);
 	}
 
 	refresh() {
