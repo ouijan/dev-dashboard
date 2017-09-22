@@ -20,4 +20,12 @@ export class BuildList {
   empty(): void {
     this.dataChange.next([]);	
   }
+
+  has(name: string): boolean {
+    let existing = this.data.find((build: Build): boolean => {
+      return build.buildName == name;
+    });
+    return existing !== undefined;
+  }
+
 }

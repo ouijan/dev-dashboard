@@ -1,4 +1,8 @@
+import  { JenkinsService } from './jenkins.service';
+
 export class Build {
+	jenkins: any
+	path: string
 	id: number
 	buildName: string
 	name: string
@@ -8,11 +12,17 @@ export class Build {
 	endTimeMillis: Date
 	pauseDurationMillis: number
 	queueDurationMillis: number
-	stages: BuildStage[]
+	stages: BuildStage[] = []
 	_links: BuildLinks
+	_poller: any
 
-	constructor(buildName: string, data: any) {
+	constructor(buildName: string, path: string, jenkins: JenkinsService) {
 		this.buildName = buildName;
+		this.path = path;
+		this.jenkins = jenkins;
+	}
+
+	setProperties(data: any): void {
 		this.name = data.name;
 		this.status = data.status;
 		this.startTimeMillis = new Date(data.startTimeMillis);
@@ -22,6 +32,25 @@ export class Build {
 		this.queueDurationMillis = data.queueDurationMillis;
 		this.stages = data.stages;
 		this._links = data._links;
+
+		if (!this.isRunning()) {
+			this.stopPolling();
+		}
+	}
+
+	stopPolling(): any {
+		if (this._poller) {
+			window.clearInterval(this._poller);
+		}
+	}
+
+	startPolling(interval: number = 15000): void {
+		this._poller = window.setInterval(() => this.refresh(), interval);
+	}
+
+	refresh() {
+		this.jenkins.getBuild(this.path)
+			.then(data => this.setProperties(data));
 	}
 
 	isSuccess(): boolean {
