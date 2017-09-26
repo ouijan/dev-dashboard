@@ -8,6 +8,10 @@ metadata:
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 spec:
-  backend:
-    serviceName: {{ include "fullname" . }}
-    servicePort: 80
+  rules:
+    - host: {{ include "hostname" . }}
+      http:
+        paths:
+          - backend:
+              serviceName: {{ include "fullname" . }}
+              servicePort: 80

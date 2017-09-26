@@ -1,5 +1,8 @@
 import {DataSource} from '@angular/cdk/collections';
 import {Observable} from 'rxjs/Observable';
+import {BehaviorSubject} from 'rxjs/BehaviorSubject';
+// import 'rxjs/add/observable/merge';
+// import 'rxjs/add/operator/map';
 
 import { Build } from './build';
 import { BuildList } from './build-list';
@@ -12,6 +15,8 @@ import { BuildList } from './build-list';
  * stream that contains only one set of data that doesn't change.
  */
 export class BuildDataSource extends DataSource<any> {
+  _filterChange = new BehaviorSubject('');
+
   constructor(private _builds: BuildList) {
     super();
   }
@@ -21,7 +26,17 @@ export class BuildDataSource extends DataSource<any> {
    * one stream containing the data to render.
    */
   connect(): Observable<Build[]> {
+    const displayDataChanges = [
+      this._builds.dataChange,
+      this._filterChange,
+    ];
+
     return this._builds.dataChange;
+    // return Observable.merge(...displayDataChanges).map(() => {
+    //   return this._builds.data.slice().filter((item: Build) => {
+    //     return false;
+    //   });
+    // });
   }
 
   disconnect() {}

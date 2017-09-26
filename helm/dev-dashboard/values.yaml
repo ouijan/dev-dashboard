@@ -1,4 +1,0 @@
-replicaCount: 2
-containerImage: dev-dashboard
-containerTag: latest
-containerRegistry: docker-registry.digitalpacific.com.au:443

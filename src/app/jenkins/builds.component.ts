@@ -45,7 +45,8 @@ export class BuildsComponent implements OnInit {
 
   createBuilds(data: any): void {
     this.title = data.name;
-    data.builds.forEach(build => this.createBuild(build.buildName, build.url));
+    data.builds.reverse()
+      .forEach(build => this.createBuild(build.buildName, build.url));
   }
 
   createBuild(name: string, path: string): void {
@@ -56,7 +57,7 @@ export class BuildsComponent implements OnInit {
     let build = new Build(name, path, this.jenkins);
     build.refresh();
     build.polling.start(3000);
-    
+
     this.builds.add(build);
   }
 

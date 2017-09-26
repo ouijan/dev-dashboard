@@ -1,4 +1,0 @@
-name: dev-dashboard
-apiVersion: v1
-description: A Helm chart for dev-dashboard
-version: 0.1.0

@@ -1,0 +1,4 @@
+name: dashboard
+apiVersion: v1
+description: A Helm chart for our development dashboard
+version: 0.1.1
