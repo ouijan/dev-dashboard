@@ -1,11 +1,11 @@
 Thankyou for installing:
      _           _     _                         _ 
   __| | __ _ ___| |__ | |__   ___   __ _ _ __ __| |
- / _` |/ _` / __| '_ \| '_ \ / _ \ / _` | '__/ _` |
+ / _` |/ _` / __|  _ \|  _ \ / _ \ / _` |  __/ _` |
 | (_| | (_| \__ \ | | | |_) | (_) | (_| | | | (_| |
  \__,_|\__,_|___/_| |_|_.__/ \___/ \__,_|_|  \__,_|
                                                    
-URL: http://{{ include "hostname” . }}
+URL: http://{{ include "hostname" . }}
 Release: {{ .Release.Name }}
 Chart Version: {{ .Chart.Version }}
 App Version: {{ .Chart.AppVersion }}
