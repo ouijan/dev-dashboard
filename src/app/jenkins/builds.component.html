@@ -37,12 +37,6 @@
       <md-cell *mdCellDef="let build"> {{ build.startTimeMillis }} </md-cell>
     </ng-container>
 
-    <ng-container mdColumnDef="flex">
-      <md-header-cell *mdHeaderCellDef></md-header-cell>
-      <md-cell *mdCellDef="let build"></md-cell>
-    </ng-container>
-
-
     <ng-container mdColumnDef="finished">
       <md-header-cell *mdHeaderCellDef> Finished </md-header-cell>
       <md-cell *mdCellDef="let build"> {{ build.endTimeMillis }} </md-cell>
@@ -54,7 +48,9 @@
     </ng-container>
 
   	<md-header-row *mdHeaderRowDef="displayedColumns"></md-header-row>
-    <md-row *mdRowDef="let row; columns: displayedColumns;"></md-row>
+    <md-row class="build"
+      *mdRowDef="let row; columns: displayedColumns;"
+      (click)="row.openInJenkins()"></md-row>
   </md-table>
 
 </div>

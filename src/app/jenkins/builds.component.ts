@@ -21,7 +21,6 @@ export class BuildsComponent implements OnInit {
   displayedColumns = [
     'status', 
     'name', 
-    'flex',
     'stage',
     // 'started',
     // 'finished',
