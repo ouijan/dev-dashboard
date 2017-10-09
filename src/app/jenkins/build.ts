@@ -6,6 +6,8 @@ export class Build {
 	path: string
 	id: number
 	buildName: string
+	repo: string
+	branch: string
 	name: string
 	status: string
 	startTimeMillis: Date
@@ -22,9 +24,15 @@ export class Build {
 		this.path = path;
 		this.jenkins = jenkins;
 		this.polling = new PollingHandler(() => this.refresh());
+
+		let arrowIndex = this.buildName.indexOf("»");
+		let hashIndex = this.buildName.indexOf("#");
+		this.repo = this.buildName.slice(0, arrowIndex).trim();
+		this.branch = this.buildName.slice(arrowIndex + 1, hashIndex).trim();
 	}
 
 	setProperties(data: any): void {
+		this.id = data.id;
 		this.name = data.name;
 		this.status = data.status;
 		this.startTimeMillis = new Date(data.startTimeMillis);
@@ -65,6 +73,14 @@ export class Build {
 		let lastIndex = this.stages.length - 1;
 		return this.stages[lastIndex];
 	}
+
+	openInJenkins(): void {
+		let href = `${this.jenkins.jenkinsUrl}/blue/organizations/jenkins/`;
+		href += encodeURIComponent(this.repo) + '/detail/';
+		href += encodeURIComponent(this.branch) + `/${this.id}/pipeline`;
+		window.open(href);
+	}
+
 }
 
 class BuildStage {
@@ -90,4 +106,14 @@ class BuildStageLinks {
 class Link {
 	href: string
 }
+
+// http://jenkins.k8s.dev.digitalpacific.com.au/
+
+// job/dp.onepanel/job/feature%252Frbac/11/
+// job/{}
+
+// blue/organizations/jenkins/
+// dp.onepanel/detail/feature%2Frbac/11/pipeline/
+
+
 

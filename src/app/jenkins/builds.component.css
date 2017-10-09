@@ -15,9 +15,13 @@
 	max-width: 50px;
 	text-align: center;
 }
-.mat-column-flex {
-  display: inline-flex;
+.mat-column-name {
   flex-grow: 100;
+}
+
+.build:hover {
+	background-color: rgba(0,0,0,0.03);
+	cursor: pointer;
 }
 
 .build-stage {
